@@ -26,12 +26,21 @@ turtle.forward(150)
 turtle.pendown()
 
 def star():
+  for i in range(5):
+    turtle.forward(110)
+    turtle.left(216)
   # Star
 
 def square():
+  for i in range(4):
+    turtle.forward(100)
+    turtle.right(90)
   # Square
 
 def hexagon():
+  for i in range(6):
+    turtle.forward(100)
+    turtle.right(60)
   # Hexagon
 
 selection = input("1. Star\n2. Square\n3. Hexagon\nSelect a number: ")
