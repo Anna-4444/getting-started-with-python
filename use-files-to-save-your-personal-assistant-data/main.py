@@ -1,7 +1,11 @@
 #imports PersonalAssistant.py file
 from PersonalAssistant import PersonalAssistant
+import json
 
 #ADD CODE: open JSON file and pass data to PersonalAssistant class
+with open("todo.json", "r") as file:
+    todo_list = json.load(file)
+    assistant = PersonalAssistant(todo_list)
 
 done = False
 
@@ -39,3 +43,6 @@ How can I help you?
         print("\nNot a valid command.")
 
 # ADD CODE: write data to JSON file
+
+with open("todo.json", "w") as file:
+    json.dump(assistant.get_todos(), file)
