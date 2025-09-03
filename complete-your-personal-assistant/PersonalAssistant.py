@@ -1,14 +1,32 @@
 class PersonalAssistant:
-    def __init__(self, todos, birthdays):
+    def __init__(self, todos, birthdays, contacts):
 
         self.todos = todos
         self.birthdays = birthdays
+        self.contacts = contacts
 
     def get_contact(self, name):
       if name in self.contacts:
-        return self.contacts[name]
+        return f"{name} is a {self.contacts[name]}"
       else:
         return "No contact with that name!"
+    
+    def get_contacts(self):
+      return self.contacts
+
+    def add_contact(self, name, job):
+      if name in self.contacts:
+        return f"{name} is already in your contacts."
+      else:
+        self.contacts[name] = job
+        return f"{name} was added to your contacts."
+
+    def delete_contact(self, name):
+      if name in self.contacts:
+        self.contacts.pop(name)
+        return f"{name} was deleted from your contacts"
+      else:
+        return f"Cannot find {name} in your contacts"
 
     def add_todo(self, new_item):
       self.todos.append(new_item)
